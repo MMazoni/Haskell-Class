@@ -1,5 +1,17 @@
 module Aula02 where
 
+soma :: (Double,Double) -> Double
+soma (x,y) = x+y
+
+ehPrimo :: Int -> Bool
+ehPrimo n = 2 == length (divisores n)
+
+divisores :: Int -> [Int]
+divisores n = [x | x <- [1..n], mod n x == 0] 
+
+profa :: [[[Int]]]
+profa = take 8 (repeat [tabuada x | x <- [1..10]])
+
 tabuada :: Int -> [Int]
 tabuada x = [x*n | n <- [1..10]]
 
