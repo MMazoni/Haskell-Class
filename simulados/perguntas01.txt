@@ -1,0 +1,64 @@
+1.Identifica a assertiva FALSA sobre o foldl:
+(10/10 Pontos)
+
+[X] Possui a mesma característica que o map
+[ ] É equivalente a "contadores e acumuladores"
+[ ] É uma função de alta-ordem
+[ ] Não é monomórfica e sim polimórfica
+
+
+2.A expressão filter (\x -> mod x 3 == 0) (map (+1) [2,5,6,7,9,8]) é equivalente a (mais de uma correta):
+(10/10 Pontos)
+
+[ ] Erro
+[ ] map (+2) [1,5,8]
+[ ] 18
+[X] [3*x | x<- [1,2,3]]
+[ ] [3,6,8]
+[X] map (+1) (filter (\x -> mod x 3 == 2) [2,4,4,-3,-2,5,8])
+
+
+3.Crie um tipo com dois valores (de sua escolha) sendo um deles contendo 3 campos quaisquer e outro sem campo algum.
+(-/10 Pontos)
+
+data Bicho = Ave {
+    tamanho :: Double,
+    nome :: String,
+    tipo :: String
+} | Peixe deriving Show
+
+
+4.Considere a função:
+
+foo :: Int -> Int -> Int
+foo k 0 = k
+foo k x
+     | even x = k + (foo (k+1) (x-1)) 
+     | otherwise = k * (foo k (x-1))
+
+
+Faça o racicínio por equações "teste de mesa" da expressão: foo 10 4
+(-/20 Pontos)
+
+foo 10 4 = 10 + (foo 11 3)    = 10 + 1705
+(foo 11 3) = 11 * (foo 11 2)  = 11 * 155
+(foo 11 2) = 11 + (foo 12 1)  = 11 + 144
+(foo 12 1) = 12 * (foo 12 0)  = 12 * 12 
+(foo 12                       = 12
+
+
+5.O sistema de tipos do Haskell é dinâmico.
+(10/10 Pontos)
+
+[ ] Verdadeiro
+[X] Falso
+
+
+6.Qual das alternativas abaixo fazem com que [A] tenha kind *
+(10/10 Pontos)
+
+[X] A= (Int,Bool)
+[X] A=Bool
+[ ] A=(->)
+[X] A = Int
+[ ] Não existe tal A. O kind de [] é * -> * -> *
