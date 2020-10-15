@@ -33,10 +33,7 @@ mediaSalarial ps = (foldl calculo 0 ps) / (fromIntegral $ length ps)
         calculo salario pessoa = salario + verSalario pessoa
 
 contratarVariosEstag :: [String] -> [Pessoa]
-contratarVariosEstag = map (contratarInicial Estagiario)
+contratarVariosEstag ps = map (contratarInicial Estagiario) ps
 
 rotinaPromocao :: Pessoa -> String
-rotinaPromocao p = p
-                |> promover
-                |> verFolha
-
+rotinaPromocao p = verFolha . promover $ p
